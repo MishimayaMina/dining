@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let routes = {};
   const notFoundPage = "notfound.html";
 
-  fetch("https://hidukimura.etranger-d.org/routes/routes.json")
+  fetch("https://dining.etranger-d.org/routes/routes.json")
     .then(res => {
       if (!res.ok) {
         throw new Error("routes.json が読み込めませんでした");
