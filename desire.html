@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デザイアチャイルドについて - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #24140e;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #fef9fb;
+    }
+
+/* --- 固定ヘッダー（赤） --- */ 
+header { 
+position: fixed; 
+top: 0; left: 0; 
+width: 100%; 
+height: 32px;
+background: #FF6666; 
+color: #24140e; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+font-size: 12px;
+padding: 0 8px; 
+z-index: 1000; 
+text-align: center; 
+#24140e-space: normal;
+line-height: 1.2; 
+overflow-wrap: break-word; 
+}
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #b33e5c; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #24140e; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #24140e; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 第2の固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 32px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #da536e; 
+border-bottom: 1px solid #b33e5c; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ（右端固定） --- */ 
+.search-window { 
+font-size: 12px; 
+color: #b33e5c; 
+#24140e-space: nowrap; }
+#searchInput {
+  background: #fef9fb;
+  color: #24140e;
+  border: 1px solid #b33e5c;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #b33e5c;
+  color: #24140e;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #BA506B;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 72px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 72px - 60px); 
+background: #da536e; 
+border-right: 1px solid #b33e5c; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+color: #fef9fb;
+background: #24140e; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #b33e5c;
+  color: #24140e;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  #24140e-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #BA506B; 
+color: #24140e; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+max-width: 100%;
+max-height: 800px;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fef9fb;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+</header>
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+      <p>
+<h1>デザイアチャイルドについて</h1>
+</p>
+<p>
+デザイアチャイルドという語を耳にしたことがある。<br>
+おそらくわたしは、それなのだろうと踏んでいる。母は知らなさそうだし、父は隠しているつもりのようだけれど。<br>
+デザイアチャイルドが何なのか、わたしは知らない。だが、何らかの手を加えられた人間であろうことは想像がつく。わたしがそれを偶然耳にした時、この単語はそのような文脈で語られていた。<br>
+<br>
+わたしの父は実父だけれど、母はおそらく本当の母ではない。わたしの実母にしてはあまりにも似ていない。本当の母のように愛してくれてはいたけれど……それでもわたしは察してしまった。わたしはおそらく、父の連れ子だ。<br>
+どういう経緯でわたしが生まれたのかは、知らない。倫理的に否定すべき経緯があったとしても意外ではない。今は巫女の代償という形で脳機能が低下しているけれど、本来わたしは明らかに普通の人間の範疇を逸脱した頭脳を持ち合わせている。自分で言うには厨二病くさいが、困ったことに事実だ。天然モノとはとても考えづらいそれを、植え付けられた記憶はない。となれば、答えは記憶を操作されたか、あるいはわたしが物心つく前に何か行われたかのいずれかになる。<br>
+父がなぜそれを隠したのか。はっきり言って、考えうる理由が多すぎて特定は不能だ。それに、その追求をしたいとわたしは思わない。それよりも、わたしは……叶うなら、普通の女の子でいたい。そして、香夜ちゃんといっしょにいたい。わたしの望みが叶うのであれば、それでいい。<br>
+<br>
+デザイアという単語は欲望という意味。好きな作品の敵幹部にデザイアって名前の子がいたから知ってる。<br>
+わたしが欲望の子なら、わたしは何を望んでいるのか。それは、たぶん……ここまでたどり着く人にとっては、語るべくもないと思う。
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv2（ナンバリング外）
+  </footer>
+</body>
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+<script src="js/search.js"></script>
+</body>
+</html>

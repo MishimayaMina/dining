@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novels - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #FFFFFF;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #47266e;
+    }
+
+/* --- 固定ヘッダー（赤） --- */ 
+header { 
+position: fixed; 
+top: 0; left: 0; 
+width: 100%; 
+height: 32px;
+background: #FF6666; 
+color: white; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+font-size: 12px;
+padding: 0 8px; 
+z-index: 1000; 
+text-align: center; 
+white-space: normal;
+line-height: 1.2; 
+overflow-wrap: break-word; 
+}
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #b79fcb; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #fff; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #fff; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 第2の固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 32px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #fff9ff; 
+border-bottom: 1px solid #b79fcb; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ（右端固定） --- */ 
+.search-window { 
+font-size: 12px; 
+color: #b79fcb; 
+white-space: nowrap; }
+#searchInput {
+  background: #FFF;
+  color: #47266e;
+  border: 1px solid #b79fcb;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #b79fcb;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #d1bada;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 72px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 72px - 60px); 
+background: #fff9ff; 
+border-right: 1px solid #e0b5d3; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+background: white; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #b79fcb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #d1bada; 
+color: white; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+width: 100%;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #47266e;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Novelsのボタン */
+.nb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #941f57;
+  background: #f5ecf4;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+</header>
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+      <p>
+<h1>てんしとあくま</h1>
+</p>
+ <p>
+　この世界に散らばる数多のカード。
+　そのカードのうち、大アルカナがあと一枚で揃ってしまう。そういう状況に陥ったことを受け、わたしはモナを呼び出した。<br>
+<br>
+「ルルちゃん」<br>
+「モナ。早速だけど本題に入らせてもらうね。例の話通り、あと一枚で大アルカナが揃う。そして揃ったらどうなるか……前に話したね」<br>
+「大アルカナだけでも、大変なことになるんでしょ？ほら、法の書の……」<br>
+<br>
+　モナのその返事に、わたしは頷く。そのあたりの具体的な話を再確認する時間はないとモナを制すと、わたしは今後のことへ話を進める。<br>
+<br>
+「モナ、あなたはレイガと一緒に音ヶ町を離れて。できれば国外がいいかな。旅費が必要ならわたしが出す」<br>
+「国外って、パスポートはあたしもレイガも持ってるけど……国外に出るための旅費まで出してくれるの？」<br>
+「それだけの事態なの。予算が出るのを待っている場合じゃない。だからわたしが建て替えろって、シークレットチーフが言ったから」<br>
+<br>
+　そうでなければ、流石に二人分の国外旅行の旅費なんて出せない。物理的にお金を用意することはできても、その後のわたしの生活が崩壊する。故に、今回みたいに補填されることが分かっていないとできないことだ。<br>
+<br>
+「とにかく、これを聞いたからにはすぐに出て。必要なお金は口座に送金するから、道中で引き出してね。……さぁ、最後の一枚が揃う前に行って！！」<br>
+<br>
+　わたしがそう言うと、モナは頷いて走り出す。途中スマホを取り出したのは、レイガに連絡するためだろう。レイガが素直に言うことを聞くかは疑問だが……それまでの時間稼ぎもまた、わたしの仕事である。わたしはモナを見送ると、わたしのカードを手に魔法を発動させる。<br>
+</p>
+<p>
+　
+</p>
+<p>
+　最後の一枚は、確か塔のカード。<br>
+　塔のカードはずっと所在不明だった。というか、今でも在処は分からない。ただ、他の二十一枚全てが集まったとなるとそれに引き寄せられて集まってしまう可能性が極めて高いというのが、わたし達の共通認識であった。<br>
+<br>
+『ルルちゃん、これから言ってた通り飛行機乗るよ。行き先はとりあえずアトランタ！』<br>
+「了解、旅費は足りてる？」<br>
+『うん！ご飯代は元々持ってるお金で賄うし、宿代も振り込んでもらった分で足りそう！安宿なのがちょっと心配だけど……』<br>
+<br>
+　モナとそう連絡を取り合う。幸いなことに、レイガも今回は事の重大さを理解してくれたのか、すんなり言うことを聞いてくれたらしい。カードの特性を考えると、その飛行機で何事か起きるのは明白だが……それを解決するのも、今回のモナとレイガの仕事の一部だ、わたしが担当する方よりは楽なのだから頑張ってもらうこととする。<br>
+　それよりも、わたしがすべきことは他にある。モナとレイガの出国自体は問題なくできそうなのを確認した以上、わたしは他のカードを引き剥がさなくてはならない。とはいえ、わたしの『悪魔』やモナの『運命』、レイガの『吊るされた男』みたいに、全部が全部持ち主がいるわけではない。<br>
+<br>
+「にしても、モナとレイガを抜いても十九枚も一箇所に集めてしまったのは迂闊だったな。集まる度になるべく遠くに引き剥がしていたというのに、気づいたらこの体たらく。せめて所有者がいる分は引き離したままにしておくのが正解だった。……でもモナとレイガを引き離すのはそっちのほうが不安が大きいしなぁ」<br>
+<br>
+　しょうがない、わたしが一人で頑張るか、とわたしはカード保管室から抜け出したカードを捕まえる準備をする。カードを構えながら、空いた片手で他所の支部へ協力要請を送信した。<br>
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv1（7/44）
+  </footer>
+</body>
+<!-- これはこんなところまで見る変態に見せる文章を書くところ -->
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+<script src="js/search.js"></script>
+</body>
+</html>

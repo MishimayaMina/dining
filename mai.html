@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>篠原真衣 - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #e7e7eb;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #111111;
+    }
+
+
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #698aab; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+color: #111111;
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 0px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #698aab; 
+border-bottom: 1px solid #698aab; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ --- */ 
+.search-window { 
+font-size: 12px; 
+color: #698aab; 
+#111111-space: nowrap; }
+#searchInput {
+  background: #e7e7eb;
+  color: #111111;
+  border: 1px solid #698aab;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #abced8;
+  color: #111111;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #abced8;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 40px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 40px - 60px); 
+background: #abced8; 
+border-right: 1px solid #698aab; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+color: #111111;
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+color: #111111;
+background: #e7e7eb; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #698aab;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  #111111-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #abced8; 
+color: #111111; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+max-width: 100%;
+max-height: 800px;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #111111;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+<p>
+<h3>わたしについて</h3>
+名前：篠原真衣<br>
+生年月日：2011年5月3日<br>
+身長：152cm<br>
+<br>
+白地教第八二四号巫女
+</p>
+<p>
+日月村の本当の名前は「白地村」。<br>
+わたしはこの村の名前が好きじゃない。白痴に繋がって、とてもいい名前には思えないから。<br>
+<br>
+教会からの資料の持ち出し自体綱渡りだったから、全てを知ることができたわけじゃない。<br>
+だからここからは、推測の話になる。
+</p>
+<p>
+白地村が崇める神の名を、わたしは知らない。というよりおそらく、知らないわけではないが認知できないようにされている気がする。<br>
+名状しがたく冒涜的なものが神なのだろうということは想像がつく。認知できないのは、その異常性から人を守るためなのかもしれない、と。<br>
+<br>
+神とは本来、人間が信仰することで生まれた、人間に都合がいい存在のはず。<br>
+そうでなければそもそも、たかが儀式ごときで人間の言葉を聞くわけがないのだ。<br>
+他の神様は違うのかもしれないけれど、少なくとも白地村の神はそういうものであるとわたしは思う。<br>
+わたしが調べたところによると、白地村に流れる川は、詳細不明なものの少なくともここ1000年以内に生まれたものらしい。そうとは思えないほど大きな川なのに、この地を示す一定以上に古い資料から、川の存在が一切ないのだ。古い時代なら、その暮らしは川と共にあり、川に触れずに記録を残すことほど不自然なこともないはずなのに。<br>
+それが行われた時期と思われる儀式の資料があった。悪用対策に詳細は伏せるが、どうやらその川を生み出す儀式は100人の詠唱者とたった1人の生贄だけで行われたらしい。ちょっとした天変地異を、実質たった1人の命だけで起こしたことになる。そんなことを可能にするのは、やはり人間に都合のいい神でしかないからだろう。<br>
+……であれば、神の侍女に選ばれた人間がなぜ、脳機能の低下という代償を受け、死を迎えれば神の侍女として輪廻の輪を外れるのか。<br>
+きっと、それが「人間に都合のいい神様」がすることだからだ。<br>
+推測するに白地村は、神の力に頼らないと生き延びることもできないような土地だ。だから、そんな場所に都合のいい信仰を神に押し付けたのだろう。口減らしを兼ねて生贄を与えれば、その生贄は抵抗力を失い、最後には死ぬ。そして、生まれ変わった生贄が復讐に戻ることは絶対にあり得ない。だから、厳しい土地でそれでも生き延びるためにこの信仰は都合が良かったのだろうと考えられる。<br>
+<br>
+わたしは、世界に対するこの村に関する告発の準備をしている。<br>
+目的がどうあれ、儀式によってわたしも、わたしの大切な親友である宮部香夜ちゃんも危険に晒され、挙げ句殺されようとした。これを放置すれば、わたし達以外にも未来でたくさん死ぬかもしれない。それを、わたしは看過できない。だから告発することにした。<br>
+これを見ているあなたに願うことは、ただひとつ。神を、忘れてほしい。信仰が消えれば、人が神による危険に晒される可能性は格段に減る。だからわたしごと、香夜ちゃんごと、神のことは忘れて、そして元の日常に帰ってほしい。<br>
+そうすればきっと、少なくとも人間の意図によって生み出される被害者はいなくなるはずだから。
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv5（41/44）
+  </footer>
+</body>
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+
+
+
+
+
+<script src="js/search.js"></script>
+</body>
+</html>

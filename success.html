@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ありがとうございます - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #e7e7eb;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #111111;
+    }
+
+
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #698aab; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+color: #111111;
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 0px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #698aab; 
+border-bottom: 1px solid #698aab; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ --- */ 
+.search-window { 
+font-size: 12px; 
+color: #698aab; 
+#111111-space: nowrap; }
+#searchInput {
+  background: #e7e7eb;
+  color: #111111;
+  border: 1px solid #698aab;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #abced8;
+  color: #111111;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #abced8;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 40px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 40px - 60px); 
+background: #abced8; 
+border-right: 1px solid #698aab; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+color: #111111;
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+color: #111111;
+background: #e7e7eb; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #698aab;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  #111111-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #abced8; 
+color: #111111; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+max-width: 100%;
+max-height: 800px;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #111111;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.x-share-black {
+  background: #698aab;
+  color: #111111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.x-share-black:hover {
+  background: #abced8;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+<p>
+<h3>ご協力に感謝いたします</h3>
+あなたのおかげで、儀式の完遂にまた一歩近づきました。<br>
+ここまでのご協力、本当にありがとうございました。<br>
+<br>
+最後にもう一つだけ、わたしのお手伝いをお願いします。<br>
+このARGを拡散してください。たかが15人と思うかもしれませんが、わずかしか頼れる人間のいない田舎の子どもにとってはとても大きな数字です。この数字に到達して儀式を完遂するため、より多くの人にこのARGをプレイするよう勧めてください。<br>
+<br><br>
+<button class="x-share-black" onclick="shareToX()">Xで共有する</button><br><br>
+</p>
+<p>
+また、もしかしたらまだあなたがたどり着けていないページがあるかもしれません。<br>
+もしご興味があれば、引き続きこのWebサイトを調査してみてください。<br>
+まだ告発の時ではありません。ですがそれでも、ご協力くださったあなたにはすべてを知る権利があります。<br>
+ヒントはわたしか、わたしに万一があった時のためにかにけんさんに預けています。<br>
+まだ知りたいことがあれば、是非もう少しだけこのWebサイトを調べてみてください。<br>
+<br>
+篠原真衣
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv5（40/44）
+  </footer>
+</body>
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+
+
+<script>
+function shareToX() {
+  const text = `あるオタク少女が制作したARGを攻略しました。
+よかったらこれを見ているあなたも攻略してみてね。
+#フォロワーが遺したARG
+https://arg.omisosiru.net/`;
+
+  const url = "https://x.com/intent/tweet?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+</script>
+
+
+
+<script src="js/search.js"></script>
+</body>
+</html>

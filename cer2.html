@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贄還の儀式 - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #111111;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #e7e7eb;
+    }
+
+
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #698aab; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+color: #111111;
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 0px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #698aab; 
+border-bottom: 1px solid #698aab; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ --- */ 
+.search-window { 
+font-size: 12px; 
+color: #698aab; 
+#111111-space: nowrap; }
+#searchInput {
+  background: #e7e7eb;
+  color: #111111;
+  border: 1px solid #698aab;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #abced8;
+  color: #111111;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #abced8;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 40px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 40px - 60px); 
+background: #abced8; 
+border-right: 1px solid #698aab; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+color: #111111;
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+color: #e7e7eb;
+background: #111111; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #698aab;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  #111111-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #abced8; 
+color: #111111; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+max-width: 100%;
+max-height: 800px;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #111111;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.center-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.input-box {
+  width: 22em;
+  height: 6em;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #698aab;
+  background: #ffffff;
+  color: #111111;
+  resize: none;
+}
+
+.exec-button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: #698aab;
+  color: #111111;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+<main>
+<div class="center-wrapper">
+  <div>
+    <textarea class="input-box" id="userInput">縺ゅ＊縺ｨ縺翫�縺ｮ縺ｫ縺医′縺ｿ繧�繧上ｌ繧峨′縺輔＆縺偵＠縺九∩縺ｮ縺倥§繧�縺励�縺ｯ繧峨∪縺�ｒ縺ｲ縺ｨ縺ｮ繧医↓縺九∴縺励◆縺ｾ縺�</textarea>
+    <br>
+    <button class="exec-button" onclick="checkInput()">実行</button>
+  </div>
+</div>
+</main>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv4（38/44）
+  </footer>
+</body>
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+
+
+<script>
+  function checkInput() {
+    const text = document.getElementById("userInput").value.trim();
+
+    // 正解の文字列を2つ
+    const correctA = "縺ゅ＊縺ｨ縺翫�縺ｮ縺ｫ縺医′縺ｿ繧�繧上ｌ繧峨′縺輔＆縺偵＠縺九∩縺ｮ縺倥§繧�縺励�縺ｯ繧峨∪縺�ｒ縺ｲ縺ｨ縺ｮ繧医↓縺九∴縺励◆縺ｾ縺�";
+    const correctB = "あざとおねのにえがみよわれらがささげしかみのじじょしのはらまいをひとのよにかえしたまえ";
+
+    if (text === correctA) {
+      window.location.href = "cer3.html";
+    } 
+    else if (text === correctB) {
+      window.location.href = "cer3.html";
+    } 
+    else {
+      // どちらでもない → リロード
+      location.reload();
+    }
+  }
+</script>
+
+
+
+
+<script src="js/search.js"></script>
+</body>
+</html>

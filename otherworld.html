@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>異世界の話 - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #e7e7eb;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #111111;
+    }
+
+
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #698aab; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+color: #111111;
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #111111; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 0px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #698aab; 
+border-bottom: 1px solid #698aab; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ --- */ 
+.search-window { 
+font-size: 12px; 
+color: #698aab; 
+#111111-space: nowrap; }
+#searchInput {
+  background: #e7e7eb;
+  color: #111111;
+  border: 1px solid #698aab;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #abced8;
+  color: #111111;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #abced8;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 40px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 40px - 60px); 
+background: #abced8; 
+border-right: 1px solid #698aab; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+color: #111111;
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+color: #111111;
+background: #e7e7eb; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #698aab;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  #111111-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #abced8; 
+color: #111111; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+max-width: 100%;
+max-height: 800px;
+display: block; 
+margin: 20px auto;
+white-space:pre;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #111111;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+<p>
+わたしが接触したフォロワー、かにけん氏はどうやら異世界の人らしい。<br>
+どうやら向こうはてっきり、わたしの好きな作品達をわたしが生み出した、いわゆる一次創作だと思って接触してきたらしい。字書きを明言してたから、かわいいイラスト達は全部依頼して描いてもらったものだと思ったらしい。18↓を明言してる人がそんなに依頼できるお金あると思う、とツッコミたいところだけど、まあ異世界に繋がってるなんて普通思わないもんね……。<br>
+おかしいと思ったわたしから提案して、かにけんさんとの認識のすり合わせをしてみた。ニチアサアニメといえば。その放送局といえば。深夜魔法少女アニメで一番有名な作品といえば。和風魔法少女アニメといえば、魔法少女ラノベといえば、日常魔法少女モノといえば、といった具合に、色々なジャンルの筆頭タイトルとその公式ビジュアルの画像を送り合って認識のすり合わせをした。<br>
+結果、わたし達が連絡に使っていたツールや、出会ったSNSの名前すら違うことが分かった。違うのに、同じだと認識して連絡を取り合っていた。わたし達は、「わたし達のインターネットは異世界に繋がっている」と結論を出した。
+</p>
+<p>
+かにけんさんが言うには、日月村がないのは当然として、白地村すら存在しないらしい。山上県の名前はわたしがフィクションと言い張るために廃藩置県当初のそれから借用したものなので、少なくとも都道府県レベルでは一致しているようだけど、逆に言えばそれ以上細かいところについては差異があるようだ。地形に関してもかにけんさんに送ってもらった地図の野洲川の本流は全然違うところを流れていたし、白地村がある場所は山があるようで、白地村が存在できるような平地なんてなかった。おそらく村そのものが、教会の儀式によって作られた──そもそも存在してはいけないはずの土地なのだ。
+</p>
+<p>
+ともあれ、かにけんさんが生きている世界は異世界であることだけは確実だ、とわたしは判断した。そして、他のフォロワーとの通話等を使って互いにそれとなく探った結果、わたし達の目が届く範囲で異世界と繋がったインターネットに接続しているのは、わたしとかにけんさんだけらしい。そこでわたしは、かにけんさんに全部預ければ、万一村が総力を上げてわたしの身元を探ったとしても、Webサイトを削除することなんてできなくなる。調べた限り、使うSNSの名前や同じポジションにある作品の名前すら違うほどの異世界との接続が確認されているのは、今のところわたしとかにけんさんの間だけ。そもそもわたしが制作したWebサイトが発見される可能性すら極めて低いと言って構わない。かにけんさんも引き受けていいよと言ってくれたし、ページが完成した後は全面的に任せるのが正解だろう。<br>
+<br>
+わたしが自分で決めたタイトルは微妙に気に入っていないから、かにけんさんに任せたいって言ったら、こういう提案をもらった。
+<img src="images/ss_titlethink.png" class="main-image">
+<br>
+わたしはこの提案を承諾して、「フォロワーが残したARGを攻略してください」をタイトルにしてもらうことにした。不吉なのはまぁ、そうなんだけど……でも、そんなことより見てもらうことのほうがずっと重要なので、しょうがない！万一ほんとにわたしが死んだら遺したにしていいよって言っておいた。まぁ連絡手段があるかと言われると──なんだけど……。<br>
+ともあれ、万一これを見ている人がいたら、その時「遺した」になってないことを祈っておこう。わたしだって、別に死にたいわけじゃない。わたしも思春期なので思うところは色々あるんですが、死にたくない理由もやっぱり色々あるし……。<br>
+これであとは、わたしの目論見がちゃんと達成されることを祈るだけ。全部、うまくいきますように……！
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv5（47/44）
+  </footer>
+</body>
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+
+
+
+
+
+<script src="js/search.js"></script>
+</body>
+</html>

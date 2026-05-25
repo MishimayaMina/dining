@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novels - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #FFFFFF;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #47266e;
+    }
+
+/* --- 固定ヘッダー（赤） --- */ 
+header { 
+position: fixed; 
+top: 0; left: 0; 
+width: 100%; 
+height: 32px;
+background: #FF6666; 
+color: white; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+font-size: 12px;
+padding: 0 8px; 
+z-index: 1000; 
+text-align: center; 
+white-space: normal;
+line-height: 1.2; 
+overflow-wrap: break-word; 
+}
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #b79fcb; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #fff; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #fff; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 第2の固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 32px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #fff9ff; 
+border-bottom: 1px solid #b79fcb; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ（右端固定） --- */ 
+.search-window { 
+font-size: 12px; 
+color: #b79fcb; 
+white-space: nowrap; }
+#searchInput {
+  background: #FFF;
+  color: #47266e;
+  border: 1px solid #b79fcb;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #b79fcb;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #d1bada;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 72px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 72px - 60px); 
+background: #fff9ff; 
+border-right: 1px solid #e0b5d3; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+background: white; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #b79fcb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #d1bada; 
+color: white; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+width: 100%;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #47266e;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Novelsのボタン */
+.nb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #941f57;
+  background: #f5ecf4;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+</header>
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+      <p>
+<h1>セーラー服の思い出</h1>
+</p>
+ <p>
+<br>　セーラー服を着た天使だ、と俺は思った。<br>
+　終末がやってきた時のことだった。真っ黒に染まった空、真っ暗になった世界、燃えるような赤い色をした竜、たくさんの角と頭を持った獣。人類は、滅亡を約束されたのだと思った。そう、それが彼女の姿によって覆されるまで。<br>
+<br>
+「大丈夫、わたし達がこの世界を守るから。キミも、他の皆も、絶対に傷つけさせたりなんかしないよ」<br>
+<br>
+　優しい声だった。セーラー服の襟とプリーツスカートを翻して、あの子は、空乃あいは、笑ってことばを口にする。<br><br>
+</p>
+<p>
+<br>　思えば、天使を見たのは初めてじゃなかった気がする。<br>
+　そうだ、あれは入学式の日。まだ、悪魔がどうだとかいう終末論が世に蔓延る前の話。迷子になった俺が途方に暮れていた時、空乃あいは俺に笑って言った。<br>
+<br>
+「ねぇ、教室わかんなくなったの？私も！一緒に先生探しに行こ！」<br>
+<br>
+　助けてくれるんじゃないんだ、と思いながらも、ひとりじゃないだけですごく安心した気がする。分からなくなったのは同じくせに、やたらと自信満々な足取りで突き進む彼女。もっとおかしなところに進んでいる気がすると抗議したのだが、聞く耳を持たない。結局仲良く入学式をドタキャンする形にはなったけど、すごく楽しかった覚えがある。<br>
+<br>
+「ヤバーい、ここ行き止まりだ！引き返そ！」<br>
+「なぁ、これめちゃくちゃ歩いてないか……？一年生の教室は下駄箱の近くって聞いたけど！？」<br>
+「距離はあてにしませーん。なぜなら迷子になった時点で距離なんてあてにならないから！」<br>
+<br>
+　そう言いながら結局教室にたどり着いた時には入学式が始まっていて、迷子になっていた俺達を探していた先生にやっと見つかって、初っ端から怒られながらこそこそと新入生の席に入っていく。それがすごく、きらきらした思い出に感じていた。<br><br>
+</p>
+<p>
+<br>「なぁ、おい！……そのまま消えたりとか、しねえよな……？」<br>
+<br>
+　口をついて出たのは、そんな言葉だった。セーラー服が、気づけば天使の翼を背中に持った、白とピンクのふわふわの衣装になっていた。変身して鮮やかになった黄金の髪が、黒く燃える風に乗ってゆらめいていた。<br>
+<br>
+「消えないよ、消えたらキミのことも皆のことも、世界も守れないじゃん！だから安心して、そこで待ってて。……絶対に、大丈夫だから！」
+<br>
+　光の剣を手に、彼女は笑う。あの時と同じ、根拠のない自信のはずなのに、なぜだかあの時と違ってひどく安心した。必ず彼女は帰ってくると、確信できた。<br>
+　だから俺は、そっと彼女を……見送る、ことにした。<br>
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv1（5/44）
+  </footer>
+</body>
+<!-- これはこんなところまで見る変態に見せる文章を書くところ -->
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+<script src="js/search.js"></script>
+</body>
+</html>

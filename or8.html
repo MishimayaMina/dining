@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novels - 御昼野だいにんぐ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #FFFFFF;
+min-height: 100vh; 
+display: flex; 
+flex-direction: column;
+color: #47266e;
+    }
+
+/* --- 固定ヘッダー（赤） --- */ 
+header { 
+position: fixed; 
+top: 0; left: 0; 
+width: 100%; 
+height: 32px;
+background: #FF6666; 
+color: white; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+font-size: 12px;
+padding: 0 8px; 
+z-index: 1000; 
+text-align: center; 
+white-space: normal;
+line-height: 1.2; 
+overflow-wrap: break-word; 
+}
+
+/* --- メニューボタン --- */ 
+.menu-button { 
+width: 40px; 
+height: 40px; 
+background: #b79fcb; 
+cursor: pointer; 
+display: flex; 
+align-items: center; 
+justify-content: center;
+z-index: 1002;
+position: relative;  
+} 
+.menu-button span { 
+display: block; 
+width: 22px; 
+height: 2px; 
+background: #fff; 
+position: relative; 
+} 
+.menu-button span::before, 
+.menu-button span::after { 
+content: ""; 
+position: absolute; 
+left: 0; 
+width: 22px; 
+height: 2px; 
+background: #fff; 
+} 
+.menu-button span::before { 
+top: -6px; 
+} 
+.menu-button span::after { 
+top: 6px; 
+}
+
+/* --- 第2の固定バー --- */ 
+.top-bar { 
+position: fixed; 
+top: 32px;
+left: 0; 
+width: 100%; 
+height: 40px; 
+background: #fff9ff; 
+border-bottom: 1px solid #b79fcb; 
+z-index: 1001; 
+display: flex; 
+align-items: center; 
+justify-content: space-between; 
+box-sizing: border-box; 
+padding: 0 8px; 
+}
+
+/* --- 検索ウィンドウ（右端固定） --- */ 
+.search-window { 
+font-size: 12px; 
+color: #b79fcb; 
+white-space: nowrap; }
+#searchInput {
+  background: #FFF;
+  color: #47266e;
+  border: 1px solid #b79fcb;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+#searchButton {
+  background: #b79fcb;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#searchInput::placeholder {
+  color: #d1bada;
+}
+
+
+
+/* --- 左スライドメニュー --- */ 
+nav { 
+position: fixed; 
+top: 72px;
+left: 0; 
+width: 250px; 
+height: calc(100% - 72px - 60px); 
+background: #fff9ff; 
+border-right: 1px solid #e0b5d3; 
+padding: 16px; 
+box-sizing: border-box; 
+transform: translateX(-100%); 
+transition: transform 0.3s ease; 
+z-index: 1000; 
+} 
+nav.open { 
+transform: translateX(0); 
+}
+
+/* --- 本文 --- */ 
+main { 
+flex: 1; 
+margin-top: 72px;
+margin-bottom: 60px; 
+padding: 20px; 
+background: white; 
+min-height: 100vh; 
+text-align: left; }
+
+.content-wrapper { 
+flex: 1; 
+display: flex; 
+flex-direction: column; 
+padding-bottom: 60px;
+max-width: 70%;  
+margin: 0 auto; 
+padding: 0 20px;
+z-index: 1; 
+position: relative;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 16px);
+  height: 60px;
+  background: #b79fcb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-left: 16px;
+  padding-right: 32px;
+
+  z-index: 1000;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: right;
+  overflow: hidden;
+}
+
+/* 本文用フッター */ 
+.content-footer { 
+background: #d1bada; 
+color: white; 
+text-align: center; 
+padding: 12px 8px; 
+font-size: 14px; 
+margin-bottom: 60px;
+}
+
+.main-image { 
+width: 100%;
+display: block; 
+margin: 20px auto;
+}
+
+/* メニューのボタン */
+.mb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #47266e;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Novelsのボタン */
+.nb {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #941f57;
+  background: #f5ecf4;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+</header>
+<div class="top-bar">
+  <div class="menu-button"><span></span></div>
+  <div class="search-box"> 
+  <input type="text" id="searchInput" placeholder="キーワードを入力"> 
+  <button id="searchButton">検索</button> 
+  </div>
+
+</div>
+
+
+
+<nav id="nav">
+  <div>メニュー項目</div>
+  <div><a href="index.html" class="mb">・Top</a></div>
+  <div><a href="about.html" class="mb">・About</a></div>
+  <div><a href="elpis.html" class="mb">・Novels</a></div>
+  <div><a href="links.html" class="mb">・Links</a></div>
+  <div><a href="hint.html" class="mb">・Hint</a></div>
+</nav>
+
+  <div class="content-wrapper">
+    <main>
+      <!-- 本文 -->
+      <p>
+<h1>うつつとゆめのあいだで</h1>
+</p>
+ <p>
+<br>　私達は、ずっと敵同士だった。そして、これからもそれは変わらない。<br>
+　だからこれは、きっと夢。いつか覚める、夢。そう、知っていた。<br>
+<br>
+「ハンナちゃん、味方だと頼りになるね！」<br>
+「勘違いしないでください。わたくしの華麗な活躍にはあなたというライバル役が必要というだけ。あなたを危険に晒すのは、わたくしだけでなければならないの」<br>
+<br>
+　そう言いながらも、あなたは一枚の紙切れを拾い上げる。そのたった一枚が、この事件の解決には必要だった。たった一枚の鍵を私に押し付けると、あなたはステッキで床を叩いて、洋館の大広間を指す。<br>
+<br>
+「さ、ここからはあなたの仕事です。くれぐれも、わたくしを失望させないでくださいね」<br>
+<br>
+　あなたの指す先、容疑者の集まる大広間。そちらに目を向けて、それから私も歩き出す。<br>
+　なんとなくそうしなきゃいけない気がして、私はあなたの方を振り返る。くるんと顔を包むような横髪の純銀が、あなたの白い肌を輝かせる。その顔には、私が初めて見る、あなたの優しい微笑みがあった。<br><br>
+</p>
+<p>
+<br>　病院で目が覚めた。<br>
+　事件性があるからと、また個室の病室に押し込まれたらしい。多分あの子もそうだろうなと思いながら、私はひとまず身体を起こす。<br>
+　今回もやっぱり身体は傷だらけだ。今回はいくつ傷跡が残るかなあ、なんて考えながら傷の数を確かめる。……今回は、比較的マシっぽい。<br>
+<br>
+「目が覚めたんですね」<br>
+「うわまた病室脱走してる」<br>
+「あなたの安否確認の方が優先です。わたくしの華麗な活躍にはあなたというライバル役が必要ですから」<br>
+<br>
+　あなたは、そう言っていきなり入ってきたくせに私の顔だけ見てさっさと帰ろうとした。その背中に私は、こんな問いかけをする。<br>
+<br>
+「ハンナちゃんって、あんなふうに笑うんだね」<br>
+「……何のことでしょうか」<br>
+「ほら、今回の洋館でさ、」<br>
+<br>
+　首を傾げるあなたに私が説明をしようとすると、私の説明の出だしだけで、食い気味にあなたは呆れたため息をつく。<br>
+<br>
+「洋館？何を言っているのでしょうか。今回の舞台は近代美術館、洋館とは似ても似つかない場所でした。夢でも見ていたのでは？」<br>
+<br>
+　それが言いたかっただけならわたくしはもう行きます、と言ってあなたは去っていった。病室のドアを閉める音がなんだか私を叩いたような気がして、それからやっと私の身体についた傷達が痛みだした。<br>
+</p>
+    </main>
+  </div>
+    <div class="content-footer">
+      本Webサイトはフィクションであり、実在する人物・団体・自治体との一切の関係はございません。
+    </div>
+
+
+  <footer class="fixed-footer">
+    ©かにけん　　Lv1（12/44）
+  </footer>
+</body>
+<!-- これはこんなところまで見る変態に見せる文章を書くところ -->
+
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const nav = document.getElementById('nav');
+
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+<script>
+  function updateFooterPadding() {
+    // スクロールバー幅を計算
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // フッター要素を取得
+    const footer = document.querySelector('footer');
+
+    // 右側の余白をスクロールバー幅ぶん追加
+    footer.style.paddingRight = (32 + scrollbarWidth) + 'px';
+  }
+
+  // 初回実行
+  updateFooterPadding();
+
+  // ウィンドウサイズが変わったら再計算
+  window.addEventListener('resize', updateFooterPadding);
+
+
+ 
+
+</script>
+<script src="js/search.js"></script>
+</body>
+</html>
